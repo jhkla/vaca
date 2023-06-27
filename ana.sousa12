@@ -1,0 +1,32 @@
+let angle = 0;
+
+function setup() {
+  createCanvas(700, 500);
+  rectMode(CENTER);
+  angleMode(DEGREES);
+  background(35);
+  stroke(35);
+  strokeWeight(25);
+}
+
+function draw() {
+  background(35);
+  
+  translate(width/2,height/2);  
+  scl = map(mouseX,0,width,0.2,3);
+  scale(scl);
+  
+  for (let i=0; i<100; i++) {
+    fill(10*i,255-30*i,255-3*i);
+    scale(0.95);
+    rotate(angle);
+    rect(0,0,700,700);
+  }
+  
+  angle+=0.1;
+}
+
+function mousePressed() {
+  let fs = fullscreen();
+  fullscreen(!fs);  
+}
